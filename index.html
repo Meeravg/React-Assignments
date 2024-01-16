@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Scoreboard</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #root {
+        padding: 20px;
+        border-radius: 8px;
+      }
+      button {
+        margin: 8px;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function CricketScoreboard() {
+        const [runs, setRuns] = React.useState(0);
+        const [wickets, setWickets] = React.useState(0);
+
+        function IncreaseBy_4 () {
+        setRuns(runs + 4)
+      }
+
+      function IncreaseBy_8 () {
+        setRuns(runs + 8)
+      }
+
+      function IncreaseBy_3 () {
+        setRuns(runs + 3)
+      }
+
+      function IncreaseWicket(){
+        wickets < 10 && setWickets(wickets + 1)
+      }
+
+        return (
+          <div>
+            <p>Runs: {runs}</p>
+            <p>Wickets: {wickets}</p>
+            <button onClick={IncreaseBy_4}>Increase runs by 4</button>
+            <button onClick={IncreaseBy_8}>Increase runs by 8</button>
+            <button onClick={IncreaseBy_3}>Increase runs by 3</button>
+            <button onClick={ IncreaseWicket}>Update Wicket</button>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<CricketScoreboard />)
+    </script>
+  </body>
+</html>
